@@ -104,3 +104,48 @@ li {
   font-weight: bold;
   font-size: 18px;
 }
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 50px solid black;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  z-index: 1;
+}
+.spinBtn,
+.disableBtn {
+  position: absolute;
+  left: 46%;
+  width: 120px;
+  height: 40px;
+
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: none;
+  font-size: 18px;
+}
+.spinBtn {
+  background-color: #007bff;
+}
+.spinBtn:hover {
+  cursor: pointer;
+  background-color: #007;
+}
+.disableBtn {
+  background-color: darkgray;
+}
+.startRotate {
+  animation: start-rotate 1s linear infinite;
+}
+@keyframes start-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.stopRotate {
+  animation-play-state: paused;
+}
