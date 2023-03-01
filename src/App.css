@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#wheel {
+  display: flex;
+  justify-content: center !important;
+}
+#canvas {
+  width: 900px !important;
+  margin-left: 300px !important;
+  padding: 0 !important;
+}
+body {
+  background-color: #003f82;
+}

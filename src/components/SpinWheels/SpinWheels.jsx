@@ -1,66 +1,39 @@
 import React, { useState } from "react";
-import "./SpinWheels.css";
+import LuckyWheel from "react-wheel-of-prizes";
 
-function SpinWheels() {
-  const [name, setname] = useState({ name: "circle" });
-  const [loading, setLoading] = useState(false);
-  const startRotation = () => {
-    setname({ name: "circle startRotate" });
-    setLoading(true);
-    setTimeout(() => {
-      setname({ name: "circle startRotate stopRotate" });
-      setLoading(false);
-    }, Math.floor(Math.random() * 10000) + 1);
+const LuckySpin = () => {
+  const [spinning, setSpinning] = useState(false);
+
+  const handleSpin = () => {
+    setSpinning(true);
+    // Set a random angle between 0 and 360 for the spin
+    const randomAngle = Math.floor(Math.random() * 360);
+    // After the spin is complete, set spinning to false
+    setTimeout(() => setSpinning(false), 5000);
   };
+
   return (
     <div>
-      <div className="arrow"></div>
-      <ul className={name.name}>
-        <li>
-          <div className="text">1</div>
-        </li>
-        <li>
-          <div className="text">2</div>
-        </li>
-        <li>
-          <div className="text">3</div>
-        </li>
-        <li>
-          <div className="text">4</div>
-        </li>
-        <li>
-          <div className="text">5</div>
-        </li>
-        <li>
-          <div className="text">6</div>
-        </li>
-        <li>
-          <div className="text">7</div>
-        </li>
-        <li>
-          <div className="text">8</div>
-        </li>
-        <li>
-          <div className="text">9</div>
-        </li>
-        <li>
-          <div className="text">10</div>
-        </li>
-        <li>
-          <div className="text">11</div>
-        </li>
-        <li>
-          <div className="text">12</div>
-        </li>
-      </ul>
-      <button
-        className={loading ? "disableBtn" : "spinBtn"}
-        onClick={startRotation}
-        disabled={loading ? true : false}>
-        {loading ? "Spinning..." : "Spin"}
+      <h1>Lucky Spin Game</h1>
+      <LuckyWheel
+        segments={[
+          { segColors: "#FF0000", text: "Prize 1" },
+          { segColors: "#00FF00", text: "Prize 2" },
+          { segColors: "#0000FF", text: "Prize 3" },
+          { segColors: "#FF00FF", text: "Prize 4" },
+          { segColors: "#00FFFF", text: "Prize 5" },
+          { segColors: "#FFFF00", text: "Prize 6" },
+        ]}
+        onStop={() => setSpinning(false)}
+        spinning={spinning}
+        randomizeAngle={true}
+        onStopSpinning={(value) => console.log(`You won ${value.text}`)}
+      />
+      <button onClick={handleSpin} disabled={spinning}>
+        {spinning ? "Spinning..." : "Spin"}
       </button>
     </div>
   );
-}
+};
 
-export default SpinWheels;
+export default LuckySpin;
