@@ -8,6 +8,11 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Wheel } from "react-custom-roulette";
 import arrow from "./assets/arrow.svg";
+import img from "./assets/dota-2-logo-wallpaper-preview.jpg";
+import Carousel from "react-material-ui-carousel";
+import prize1 from "./assets/Spin wheel UI/png/Prize/Mi Pad 5.png";
+import prize2 from "./assets/Spin wheel UI/png/Prize/Mi watch color (sports Version).png";
+import prize3 from "./assets/Spin wheel UI/png/Prize/Redmi (11) pro 5G.png";
 
 export default function App() {
   const style = {
@@ -123,8 +128,9 @@ export default function App() {
   // console.log(newPrize);
 
   return (
-    <div style={{ heigh: "100vh", width: "100vw" }}>
-      {/* <nav className="navbar">
+    <>
+      <div>
+        {/* <nav className="navbar">
         <button className="nav-btn">
           <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
@@ -134,152 +140,171 @@ export default function App() {
           ဘာသာစကား
         </button>
       </nav> */}
-      <div
-        style={{
-          background: "#ffffff",
-          textAlign: "center",
-          height: "200px",
-          margin: "20px",
-        }}>
-        <h3>Ads</h3>
-      </div>
-      <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
-        <button
-          onClick={langHandler}
-          style={{
-            borderRadius: "3px",
-            margin: "3px",
-            padding: "5px 20px",
-            border: "none",
-            backgroundColor: "crimson",
-            color: "#fff",
-          }}>
-          အမြင့်ဆုံးဆုလက်ဆောင်
-        </button>
-        <button
-          onClick={winner10Handler}
-          style={{
-            borderRadius: "3px",
-            margin: "3px",
-            padding: "5px 20px",
-            border: "none",
-            backgroundColor: "crimson",
-            color: "#fff",
-          }}>
-          အမြင့်ဆုံးအနိုင်ရရှိသူ ၁၀ဦး
-        </button>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          borderRadius: "10px",
-        }}>
-        <div className="container" style={{ position: "relative" }}>
-          <Wheel
-            mustStartSpinning={mustSpin}
-            prizeNumber={prizeNumber}
-            data={data}
-            outerBorderColor="gold"
-            onStopSpinning={() => {
-              setMustSpin(false);
-              setOpen(true);
-              setWin(true);
-              // setNewPrize(prizeNumber);
-            }}
-          />
-          <button className="btn-spin" onClick={handleSpinClick}>
-            SPIN
-          </button>
-        </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          width: "90vw",
-          margin: "60px auto",
-          // marginTop: "-70px",
-        }}>
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
-          {/* <p style={{ marginRight: "20px", fontSize: "20px", color: "#fff" }}>Lucky Code ထည့်ရန်</p>{" "} */}
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <input
-              type="text"
-              style={{
-                width: "80vw",
-                padding: "8px 10px",
-                backgroundColor: "#ffffff",
-                color: "#fff",
-              }}
-              placeholder="lucky draw code"
-            />{" "}
+        <div className="container-main">
+          <div
+            style={{
+              height: "200px",
+              margin: "20px",
+              display: "block",
+            }}>
+            <Carousel
+              navButtonsWrapperProps={
+                {
+                  // Move the buttons to the bottom. Unsetting top here to override default style.
+                }
+              }
+              sx={{ height: "200px" }}>
+              <img src={img} alt="" style={{ width: "100%", height: "200px" }} />
+              <img src={img} alt="" style={{ width: "100%", height: "200px" }} />
+            </Carousel>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
             <button
+              onClick={langHandler}
               style={{
-                padding: "8px 10px",
-                // border: "2px solid gold",
+                borderRadius: "3px",
+                margin: "3px",
+                padding: "5px 20px",
+                border: "none",
                 backgroundColor: "crimson",
                 color: "#fff",
               }}>
-              OK
+              အမြင့်ဆုံးဆုလက်ဆောင်
+            </button>
+            <button
+              onClick={winner10Handler}
+              style={{
+                borderRadius: "3px",
+                margin: "3px",
+                padding: "5px 20px",
+                border: "none",
+                backgroundColor: "crimson",
+                color: "#fff",
+              }}>
+              အမြင့်ဆုံးအနိုင်ရရှိသူ ၁၀ဦး
+            </button>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "10px",
+            }}>
+            <div className="container" style={{ position: "relative" }}>
+              <Wheel
+                mustStartSpinning={mustSpin}
+                prizeNumber={prizeNumber}
+                data={data}
+                outerBorderColor="gold"
+                onStopSpinning={() => {
+                  setMustSpin(false);
+                  setOpen(true);
+                  setWin(true);
+                  // setNewPrize(prizeNumber);
+                }}
+              />
+              <button className="btn-spin" onClick={handleSpinClick}>
+                SPIN
+              </button>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+
+              margin: "60px auto",
+              // marginTop: "-70px",
+            }}>
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
+              {/* <p style={{ marginRight: "20px", fontSize: "20px", color: "#fff" }}>Lucky Code ထည့်ရန်</p>{" "} */}
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <input
+                  type="text"
+                  style={{
+                    padding: "12px 10px",
+                    width: "350px",
+                    backgroundColor: "#ffffff",
+                    textAlign: "center",
+                    color: "#fff",
+                  }}
+                  placeholder="lucky draw code"
+                />{" "}
+                <button
+                  style={{
+                    padding: "12px 10px",
+                    textAlign: "center",
+                    border: "none",
+                    backgroundColor: "crimson",
+                    borderRadius: "0px 4px 4px 0px",
+                    color: "#fff",
+                  }}>
+                  OK
+                </button>
+              </div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <div style={{ display: "flex" }}>
+                <button
+                  className="button"
+                  onClick={aboutHandler}
+                  style={{
+                    width: "127px",
+                    margin: "20px 3px",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    border: "none",
+                    backgroundColor: "crimson",
+                    color: "#fff",
+                  }}>
+                  အကြောင်း
+                </button>
+                <button
+                  className="button"
+                  onClick={contactHandler}
+                  style={{
+                    width: "127px",
+                    margin: "20px 3px",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    border: "none",
+                    backgroundColor: "crimson",
+                    color: "#fff",
+                  }}>
+                  ဆက်သွယ်ရန်
+                </button>
+                <button
+                  className="button"
+                  onClick={historyHandler}
+                  style={{
+                    width: "127px",
+                    margin: "20px 3px",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    border: "none",
+                    backgroundColor: "crimson",
+                    color: "#fff",
+                  }}>
+                  မှတ်တမ်း
+                </button>
+              </div>
+            </div>
+            <button
+              className="btn-full"
+              onClick={freeAccountHandler}
+              style={{
+                padding: "5px 10px",
+                border: "none",
+                borderRadius: "5px",
+                backgroundColor: "crimson",
+                margin: "0px 4px",
+                color: "#fff",
+              }}>
+              ဖရီးအကောင့်
             </button>
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
-          <div style={{ display: "flex" }}>
-            <button
-              onClick={aboutHandler}
-              style={{
-                width: "28vw",
-                margin: "20px 3px",
-                padding: "5px 10px",
-                borderRadius: "5px",
-                border: "none",
-                backgroundColor: "crimson",
-                color: "#fff",
-              }}>
-              အကြောင်း
-            </button>
-            <button
-              onClick={contactHandler}
-              style={{
-                width: "28vw",
-                margin: "20px 3px",
-                padding: "5px 10px",
-                borderRadius: "5px",
-                border: "none",
-                backgroundColor: "crimson",
-                color: "#fff",
-              }}>
-              ဆက်သွယ်ရန်
-            </button>
-            <button
-              onClick={historyHandler}
-              style={{
-                width: "28vw",
-                margin: "20px 3px",
-                padding: "5px 10px",
-                borderRadius: "5px",
-                border: "none",
-                backgroundColor: "crimson",
-                color: "#fff",
-              }}>
-              မှတ်တမ်း
-            </button>
-          </div>
-        </div>
-        <button
-          onClick={freeAccountHandler}
-          style={{
-            padding: "5px 10px",
-            border: "none",
-            borderRadius: "5px",
-            backgroundColor: "crimson",
-            color: "#fff",
-          }}>
-          ဖရီးအကောင့်
-        </button>
       </div>
       <Modal
         open={open}
@@ -298,7 +323,7 @@ export default function App() {
                   window.location.reload(true);
                 }}
                 style={{
-                  margin: "3px",
+                  margin: "3px auto",
                   padding: "5px 10px",
                   borderRadius: "20px",
                   border: "2px solid gold",
@@ -356,7 +381,7 @@ export default function App() {
                   setOpen(false);
                 }}
                 style={{
-                  margin: "3px",
+                  margin: "3px auto",
                   padding: "5px 10px",
                   borderRadius: "20px",
                   border: "2px solid gold",
@@ -377,7 +402,7 @@ export default function App() {
                   setOpen(false);
                 }}
                 style={{
-                  margin: "3px",
+                  margin: "3px auto",
                   padding: "5px 10px",
                   borderRadius: "20px",
                   border: "2px solid gold",
@@ -388,26 +413,26 @@ export default function App() {
               </button>{" "}
             </div>
           ) : winner10 ? (
-            <div>
-              Winner 10
+            <div className="winner-container">
+              <h3>Winners List</h3>
               <ul style={{ listStyleType: "number" }}>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>testing</li>
+                <li>demo</li>
+                <li>hello</li>
+                <li>customer</li>
+                <li>admin</li>
+                <li>customer service</li>
+                <li>client</li>
+                <li>htet</li>
+                <li>master</li>
+                <li>zero</li>
               </ul>
               <button
                 onClick={() => {
                   setOpen(false);
                 }}
                 style={{
-                  margin: "3px",
+                  margin: "3px auto",
                   padding: "5px 10px",
                   borderRadius: "20px",
                   border: "2px solid gold",
@@ -456,7 +481,81 @@ export default function App() {
           ) : lang ? (
             <>
               <p>အမြင့်ဆုံးဆုလက်ဆောင်များ</p>
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "28%",
+                    height: "100px",
+                    margin: "5px",
+                  }}>
+                  <img src={prize1} alt="" style={{ width: "100%", height: "100%" }} />{" "}
+                  <span>Prize</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "28%",
+                    height: "100px",
+                    margin: "5px",
+                  }}>
+                  <img src={prize2} alt="" style={{ width: "100%", height: "100%" }} />{" "}
+                  <span>Prize</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "28%",
+                    height: "100px",
+                    margin: "5px",
+                  }}>
+                  <img src={prize3} alt="" style={{ width: "100%", height: "100%" }} />{" "}
+                  <span>Prize</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "28%",
+                    height: "100px",
+                    margin: "5px",
+                  }}>
+                  <img src={prize1} alt="" style={{ width: "100%", height: "100%" }} />{" "}
+                  <span>Prize</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "28%",
+                    height: "100px",
+                    margin: "5px",
+                  }}>
+                  <img src={prize2} alt="" style={{ width: "100%", height: "100%" }} />{" "}
+                  <span>Prize</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: "28%",
+                    height: "100px",
+                    margin: "5px",
+                  }}>
+                  <img src={prize3} alt="" style={{ width: "100%", height: "100%" }} />{" "}
+                  <span>Prize</span>
+                </div>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
                 <button
                   onClick={() => {
                     setOpen(false);
@@ -479,6 +578,6 @@ export default function App() {
           )}
         </Box>
       </Modal>
-    </div>
+    </>
   );
 }

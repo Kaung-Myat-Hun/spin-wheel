@@ -60,3 +60,39 @@ body {
   border-radius: 10px;
   background-color: aliceblue;
 }
+
+.container-main {
+  max-width: 400px;
+  width: 400px;
+  margin: auto;
+}
+.winner-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.winner-container h3 {
+  margin-bottom: 20px;
+}
+.winner-container ul li {
+  padding: 5px 10px;
+  width: 90%;
+}
+.winner-container button {
+  margin: 10px auto !important;
+  width: 150px;
+}
+@media screen and (max-width: 400px) {
+  input {
+    width: 80vw !important;
+  }
+  .button {
+    width: 113px !important;
+  }
+  .btn-full {
+    width: 90vw;
+    margin: auto !important;
+  }
+}
