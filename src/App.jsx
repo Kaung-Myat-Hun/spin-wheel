@@ -148,6 +148,7 @@ export default function App() {
               display: "block",
             }}>
             <Carousel
+              animation="slide"
               navButtonsWrapperProps={
                 {
                   // Move the buttons to the bottom. Unsetting top here to override default style.

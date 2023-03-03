@@ -67,17 +67,18 @@ body {
   margin: auto;
 }
 .winner-container {
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .winner-container h3 {
   margin-bottom: 20px;
+  margin-left: 60px;
 }
 .winner-container ul li {
-  padding: 5px 10px;
+  margin: auto 40px;
+  padding: 5px;
   width: 90%;
 }
 .winner-container button {
