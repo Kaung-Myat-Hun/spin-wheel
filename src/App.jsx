@@ -228,7 +228,6 @@ export default function App() {
                     width: "350px",
                     backgroundColor: "#ffffff",
                     textAlign: "center",
-                    color: "#fff",
                   }}
                   placeholder="lucky draw code"
                 />{" "}
@@ -313,10 +312,12 @@ export default function App() {
         aria-describedby="modal-modal-description">
         <Box sx={style}>
           {win ? (
-            <>
-              <p>
+            <div style={{ textAlign: "center" }}>
+              <p style={{ margin: "10px", fontSize: "16px" }}>
                 Congratulation! <br /> You Won{" "}
-                <span style={{ color: "green" }}>{newPrize?.option}</span>
+                <span style={{ color: "green", fontWeight: "700", fontSize: "20px" }}>
+                  {newPrize?.option}
+                </span>
               </p>
               <button
                 onClick={() => {
@@ -324,6 +325,7 @@ export default function App() {
                   window.location.reload(true);
                 }}
                 style={{
+                  width: "50%",
                   margin: "3px auto",
                   padding: "5px 10px",
                   borderRadius: "20px",
@@ -333,7 +335,7 @@ export default function App() {
                 }}>
                 Ok
               </button>{" "}
-            </>
+            </div>
           ) : history ? (
             <div>
               <p>Lucky Draw Code ထည့်ပါ</p>
@@ -371,8 +373,8 @@ export default function App() {
               </div>
             </div>
           ) : about ? (
-            <div>
-              About{" "}
+            <div style={{ textAlign: "center" }}>
+              <span style={{ fontSize: "20px", fontWeight: "700" }}>About</span>
               <p>
                 Agent သက်တမ်းသုံးနှစ်ရှိတဲ့ ဂျပန်ကြီး Yogo မှာ ငွေကြေးယုံကြည်စိတ်ချစွာဖြင့်
                 ဆော့ကစားနိုင်ပါသည်။
@@ -382,6 +384,7 @@ export default function App() {
                   setOpen(false);
                 }}
                 style={{
+                  width: "50%",
                   margin: "3px auto",
                   padding: "5px 10px",
                   borderRadius: "20px",
@@ -393,8 +396,8 @@ export default function App() {
               </button>{" "}
             </div>
           ) : contact ? (
-            <div>
-              Contact{" "}
+            <div style={{ textAlign: "center" }}>
+              <span style={{ fontSize: "20px", fontWeight: "700" }}>Contact</span>
               <p>
                 ငွေသွင်းကစားလိုပါက <br /> Viber - 09876543210 သို့ဆက်သွယ်ပေးပါ။
               </p>
@@ -403,6 +406,7 @@ export default function App() {
                   setOpen(false);
                 }}
                 style={{
+                  width: "50%",
                   margin: "3px auto",
                   padding: "5px 10px",
                   borderRadius: "20px",
@@ -456,7 +460,7 @@ export default function App() {
                   type="text"
                   placeholder="ဖရီးအကောင့်ရယူရန် ဖုန်းနံပတ်ထည့်ပါ"
                   style={{
-                    width: "80%",
+                    width: "100%",
                     padding: "10px",
                     borderRadius: "20px",
                     margin: " 10px auto",
