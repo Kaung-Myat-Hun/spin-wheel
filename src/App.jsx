@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import WheelComponent from "react-wheel-of-prizes";
 // import "react-wheel-of-prizes/dist/index.css";
@@ -8,11 +8,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Wheel } from "react-custom-roulette";
 import arrow from "./assets/arrow.svg";
-import img from "./assets/dota-2-logo-wallpaper-preview.jpg";
-import Carousel from "react-material-ui-carousel";
 import prize1 from "./assets/Spin wheel UI/png/Prize/Mi Pad 5.png";
 import prize2 from "./assets/Spin wheel UI/png/Prize/Mi watch color (sports Version).png";
 import prize3 from "./assets/Spin wheel UI/png/Prize/Redmi (11) pro 5G.png";
+
+import GetApi from "./components/SpinWheels/services/getfunction.js";
+import Slider from "./components/Slider/Slider.jsx";
 
 export default function App() {
   const style = {
@@ -115,17 +116,27 @@ export default function App() {
     setNewPrize(data[newPrizeNumber]);
   };
   const data = [
-    { option: "hello", style: { backgroundColor: "crimson", textColor: "black" } },
-    { option: "hello1", style: { backgroundColor: "white" } },
-    { option: "hello2", style: { backgroundColor: "crimson", textColor: "black" } },
-    { option: "hello3", style: { backgroundColor: "white" } },
-    { option: "hello4", style: { backgroundColor: "crimson", textColor: "black" } },
-    { option: "hello5", style: { backgroundColor: "white" } },
-    { option: "hello6", style: { backgroundColor: "crimson", textColor: "black" } },
-    { option: "hello7", style: { backgroundColor: "white" } },
+    // { option: "hello", style: { backgroundColor: "crimson", textColor: "black" } },
+    // { option: "hello1", style: { backgroundColor: "white" } },
+    // { option: "hello2", style: { backgroundColor: "crimson", textColor: "black" } },
+    // { option: "hello3", style: { backgroundColor: "white" } },
+    // { option: "hello4", style: { backgroundColor: "crimson", textColor: "black" } },
+    // { option: "hello5", style: { backgroundColor: "white" } },
+    // { option: "hello6", style: { backgroundColor: "crimson", textColor: "black" } },
+    // { option: "hello7", style: { backgroundColor: "white" } },
   ];
 
   // console.log(newPrize);
+
+  const { dataRes } = GetApi("api/prizes");
+  console.log(dataRes, "response");
+
+  for (let i = 0; i < dataRes.length; i++) {
+    data[i] = {
+      option: dataRes[i].name,
+      style: (i + 1) % 2 === 0 ? { backgroundColor: "crimson" } : { backgroundColor: "white" },
+    };
+  }
 
   return (
     <>
@@ -147,17 +158,7 @@ export default function App() {
               margin: "20px",
               display: "block",
             }}>
-            <Carousel
-              animation="slide"
-              navButtonsWrapperProps={
-                {
-                  // Move the buttons to the bottom. Unsetting top here to override default style.
-                }
-              }
-              sx={{ height: "200px" }}>
-              <img src={img} alt="" style={{ width: "100%", height: "200px" }} />
-              <img src={img} alt="" style={{ width: "100%", height: "200px" }} />
-            </Carousel>
+            <Slider></Slider>
           </div>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "10px" }}>
             <button
@@ -322,7 +323,7 @@ export default function App() {
               <button
                 onClick={() => {
                   setOpen(false);
-                  window.location.reload(true);
+                  // window.location.reload(true);
                 }}
                 style={{
                   width: "50%",
