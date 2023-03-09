@@ -376,8 +376,7 @@ export default function App() {
             <div style={{ textAlign: "center" }}>
               <span style={{ fontSize: "20px", fontWeight: "700" }}>About</span>
               <p>
-                Agent သက်တမ်းသုံးနှစ်ရှိတဲ့ ဂျပန်ကြီး Yogo မှာ ငွေကြေးယုံကြည်စိတ်ချစွာဖြင့်
-                ဆော့ကစားနိုင်ပါသည်။
+                
               </p>
               <button
                 onClick={() => {
@@ -399,7 +398,7 @@ export default function App() {
             <div style={{ textAlign: "center" }}>
               <span style={{ fontSize: "20px", fontWeight: "700" }}>Contact</span>
               <p>
-                ငွေသွင်းကစားလိုပါက <br /> Viber - 09876543210 သို့ဆက်သွယ်ပေးပါ။
+                
               </p>
               <button
                 onClick={() => {
